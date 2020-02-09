@@ -67,21 +67,6 @@ services:
     depends_on:
       - elasticsearch
 
-  heartbeat:
-     build:
-       context: ./heartbeat
-       args:
-          ELK_VERSION: $ELK_VERSION
-     volumes:
-       - ./heartbeat/config/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml:ro
-     environment:
-       - output.elasticsearch.hosts=["elasticsearch:9200"]
-     networks:
-       - elk
-     depends_on:
-       - elasticsearch
-     restart: always
-
 networks:
   elk:
     driver: bridge
