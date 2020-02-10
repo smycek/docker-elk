@@ -1,0 +1,4 @@
+- type: http
+  schedule: '@every 5s'
+  hosts: ["http://localhost:80/service/status"]
+  check.response.status: 200
